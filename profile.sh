@@ -11,7 +11,7 @@ source /opt/bootstrap/functions
 
 
 # --- Add Packages
-ubuntu_bundles="openssh-server"
+ubuntu_bundles="openssh-server linux-generic-hwe-16.04"
 ubuntu_packages="wget"
 
 # --- List out any docker images you want pre-installed separated by spaces. ---
@@ -37,9 +37,9 @@ run "Installing Extra Packages on Ubuntu ${param_ubuntuversion}" \
     ${PROVISION_LOG}
 
 # --- Pull any and load any system images ---
-for image in $pull_sysdockerimagelist; do
-	run "Installing system-docker image $image" "docker exec -i system-docker docker pull $image" "$TMP/provisioning.log"
-done
-for image in $wget_sysdockerimagelist; do
-	run "Installing system-docker image $image" "wget -O- $image 2>> $TMP/provisioning.log | docker exec -i system-docker docker load" "$TMP/provisioning.log"
-done
+#for image in $pull_sysdockerimagelist; do
+#	run "Installing system-docker image $image" "docker exec -i system-docker docker pull $image" "$TMP/provisioning.log"
+#done
+#for image in $wget_sysdockerimagelist; do
+#	run "Installing system-docker image $image" "wget -O- $image 2>> $TMP/provisioning.log | docker exec -i system-docker docker load" "$TMP/provisioning.log"
+#done
